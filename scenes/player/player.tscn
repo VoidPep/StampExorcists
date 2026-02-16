@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b2ync4ygwbf4t"]
+
+[ext_resource type="Script" uid="uid://txberox46d1d" path="res://scripts/player_controller.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_gmlin"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1791341929]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_dovo2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=551912067]
+texture = ExtResource("2_gmlin")
+offset = Vector2(0, -57.54)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1967160064]
+position = Vector2(360.00003, 98)
+scale = Vector2(2.1595237, 1.8336396)
+polygon = PackedVector2Array(-167.1665, -51.809525, -150.9592, -61.62607, -165.31422, -71.987976, -180.13231, -62.716797)
