@@ -1,0 +1,28 @@
+[gd_resource type="TileSet" format=3 uid="uid://8nxyjkfydhux"]
+
+[ext_resource type="Texture2D" uid="uid://cg3gnrtoarxs" path="res://art/isometric_tiles/tilesheet_complete.png" id="1_fq754"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_egl6w"]
+texture = ExtResource("1_fq754")
+texture_region_size = Vector2i(111, 128)
+0:0/next_alternative_id = 2
+0:0/0 = 0
+1:0/0 = 0
+3:1/0 = 0
+6:0/0 = 0
+7:2/next_alternative_id = 2
+7:2/0 = 0
+7:2/1 = 1
+7:2/1/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, -58.14081, 29.35264, -0.564476, 62.6566, 57.576332, 29.35264)
+7:0/0 = 0
+8:0/0 = 0
+9:1/0 = 0
+8:2/0 = 0
+
+[resource]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(111, 64)
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_egl6w")
