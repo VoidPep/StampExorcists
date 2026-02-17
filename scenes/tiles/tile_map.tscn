@@ -6,6 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://cv7p17vbsy3wg" path="res://scenes/LightSource.tscn" id="4_311d0"]
 [ext_resource type="PackedScene" uid="uid://bphgkwouy8mgs" path="res://scenes/tiles/ui.tscn" id="5_dgahj"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dgahj"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2100, 1080, 1)
+angle_min = 15.0000105
+angle_max = 25.000011
+direction = Vector3(1, -1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 25.0
+gravity = Vector3(0, -10, 0)
+scale_min = 6.0499997
+scale_max = 6.0499997
+turbulence_enabled = true
+
 [sub_resource type="Environment" id="Environment_311d0"]
 background_mode = 3
 glow_enabled = true
@@ -50,21 +64,31 @@ tile_set = ExtResource("1_beh8d")
 
 [node name="Enviroment" type="Node2D" parent="." unique_id=538283779]
 
+[node name="DustParticles" type="GPUParticles2D" parent="Enviroment" unique_id=1612440778]
+modulate = Color(0.97401303, 0.9272073, 0.8669776, 0.5294118)
+z_index = 6
+position = Vector2(-218, -295)
+amount = 100
+lifetime = 6.0
+randomness = 0.5
+visibility_rect = Rect2(-2000, -2000, 2000, 2000)
+process_material = SubResource("ParticleProcessMaterial_dgahj")
+
 [node name="Y_SortLayer" type="Node2D" parent="Enviroment" unique_id=1380398732]
 y_sort_enabled = true
 
-[node name="Tiles" type="Node2D" parent="Enviroment/Y_SortLayer" unique_id=486979448]
+[node name="EnviromentLayer" type="Node2D" parent="Enviroment/Y_SortLayer" unique_id=362066009]
 y_sort_enabled = true
-scale = Vector2(4, 4)
 
-[node name="EnviromentLayer" type="TileMapLayer" parent="Enviroment/Y_SortLayer/Tiles" unique_id=1443332372]
+[node name="EnviromentLayer" type="TileMapLayer" parent="Enviroment/Y_SortLayer/EnviromentLayer" unique_id=1443332372]
 y_sort_enabled = true
-position = Vector2(1, 0)
+position = Vector2(4, 0)
+scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AADy/wMAAgAIAAUAAQDy/wQAAgAIAAUAAQDz/wQAAgAIAAUAAQDz/wUAAgAIAAUAAQD0/wUAAgAIAAUAAQD0/wYAAgAIAAUAAQD1/wYAAgAIAAUAAQD1/wcAAgAIAAUAAQD2/wcAAgAIAAUAAQD2/wgAAgAIAAUAAQD3/wgAAgAIAAUAAQD4/wgAAgAIAAUAAQD4/wkAAgAIAAUAAQD5/wkAAgAIAAUAAQD6/wkAAgAIAAUAAQD6/woAAgAIAAUAAQD7/woAAgAIAAUAAQD1//f/AgAIAAUAAQD1//j/AgAIAAUAAQD2//f/AgAIAAUAAQD3//f/AgAIAAUAAQD3//j/AgAIAAUAAQD4//j/AgAIAAUAAQD5//j/AgAIAAUAAQD6//j/AgAIAAUAAQD6//n/AgAIAAUAAQD7//n/AgAIAAUAAQD7//r/AgAIAAUAAQD8//r/AgAIAAUAAQD8//v/AgAIAAUAAQD9//v/AgAIAAUAAQD//wIAAgAIAAUAAQAAAAYAAgAIAAUAAQD8/wkAAgAIAAUAAQA=")
 tile_set = ExtResource("1_beh8d")
 
 [node name="CharacterBody2D" parent="Enviroment/Y_SortLayer" unique_id=1791341929 node_paths=PackedStringArray("dash_cooldown_ui") instance=ExtResource("2_beh8d")]
-position = Vector2(-202, -16)
+position = Vector2(-1346, -162)
 dash_cooldown_ui = NodePath("../../../UI/CanvasLayer/DashCooldown")
 
 [node name="Light" parent="Enviroment/Y_SortLayer" unique_id=1578226890 instance=ExtResource("4_311d0")]

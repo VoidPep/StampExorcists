@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dygwlndx08luy"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cs64r"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(576, 320, 1)
+angle_min = 15.0000105
+angle_max = 25.000011
+direction = Vector3(1, -1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 25.0
+gravity = Vector3(0, -10, 0)
+scale_min = 0.39999998
+scale_max = 0.79999995
+turbulence_enabled = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" unique_id=801811652]
+modulate = Color(0.933838, 0.8200667, 0.6695875, 0.531)
+amount = 50
+lifetime = 5.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_cs64r")
