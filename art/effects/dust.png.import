@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2bm16ulolrgd"
-path="res://.godot/imported/ExoRunningDLeft.png-d63ed92e869e959bac21138013432795.ctex"
+uid="uid://d11kffl3akx75"
+path="res://.godot/imported/dust.png-67449f48282e9ea6acff3c78a9e108ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/player/ExoRunningDLeft.png"
-dest_files=["res://.godot/imported/ExoRunningDLeft.png-d63ed92e869e959bac21138013432795.ctex"]
+source_file="res://art/effects/dust.png"
+dest_files=["res://.godot/imported/dust.png-67449f48282e9ea6acff3c78a9e108ea.ctex"]
 
 [params]
 

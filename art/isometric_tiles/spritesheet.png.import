@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgngigq7ep4tb"
-path="res://.godot/imported/PlayerRunningLeftSheet.png-bf5206c305ac9ea50b27de56f24bab89.ctex"
+uid="uid://bfcs6x2m3mrp2"
+path="res://.godot/imported/spritesheet.png-383e45160985abcc3ab3513bbaa501a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/player/PlayerRunningLeftSheet.png"
-dest_files=["res://.godot/imported/PlayerRunningLeftSheet.png-bf5206c305ac9ea50b27de56f24bab89.ctex"]
+source_file="res://art/isometric_tiles/spritesheet.png"
+dest_files=["res://.godot/imported/spritesheet.png-383e45160985abcc3ab3513bbaa501a6.ctex"]
 
 [params]
 

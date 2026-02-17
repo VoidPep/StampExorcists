@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cv7p17vbsy3wg"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_kmpme"]
+
+[sub_resource type="Gradient" id="Gradient_k8sov"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c1w34"]
+gradient = SubResource("Gradient_k8sov")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.37606838, 0)
+
+[node name="Node2D" type="Node2D" unique_id=1578226890]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1248726152]
+visible = false
+texture = ExtResource("1_kmpme")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=73348304]
+color = Color(1, 0.55161136, 0.46120942, 1)
+texture = SubResource("GradientTexture2D_c1w34")
+texture_scale = 20.4
+height = 126.0
