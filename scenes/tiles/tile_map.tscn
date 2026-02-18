@@ -71,7 +71,7 @@ position = Vector2(-218, -295)
 amount = 100
 lifetime = 6.0
 randomness = 0.5
-visibility_rect = Rect2(-2000, -2000, 2000, 2000)
+visibility_rect = Rect2(-2000, -2000, 4000, 4000)
 process_material = SubResource("ParticleProcessMaterial_dgahj")
 
 [node name="Y_SortLayer" type="Node2D" parent="Enviroment" unique_id=1380398732]
