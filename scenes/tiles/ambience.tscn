@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://3hscd5gcbcdj"]
+
+[ext_resource type="PackedScene" uid="uid://cv7p17vbsy3wg" path="res://scenes/LightSource.tscn" id="1_dfiuu"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dgahj"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2100, 1080, 1)
+angle_min = 15.0000105
+angle_max = 25.000011
+direction = Vector3(1, -1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 25.0
+gravity = Vector3(0, -10, 0)
+scale_min = 6.0499997
+scale_max = 6.0499997
+turbulence_enabled = true
+
+[node name="Ambience" type="Node2D" unique_id=1217222588]
+
+[node name="GlobalLight" parent="." unique_id=1578226890 instance=ExtResource("1_dfiuu")]
+position = Vector2(-306.00012, -377.00012)
+scale = Vector2(3.5512795, 3.0650349)
+
+[node name="DustParticles" type="GPUParticles2D" parent="." unique_id=869900624]
+modulate = Color(0.97401303, 0.9272073, 0.8669776, 0.5294118)
+z_index = 6
+position = Vector2(-218, -295)
+amount = 100
+lifetime = 6.0
+randomness = 0.5
+visibility_rect = Rect2(-2000, -2000, 4000, 4000)
+process_material = SubResource("ParticleProcessMaterial_dgahj")

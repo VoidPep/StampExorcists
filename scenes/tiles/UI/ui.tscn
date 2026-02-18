@@ -23,9 +23,6 @@ fill_mode = 4
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="LightningLayer" type="CanvasLayer" parent="." unique_id=246622388]
-layer = 10
-
 [node name="Vignette" type="CanvasLayer" parent="." unique_id=1338517305]
 layer = 10
 

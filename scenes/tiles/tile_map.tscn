@@ -3,23 +3,10 @@
 [ext_resource type="TileSet" uid="uid://8nxyjkfydhux" path="res://scenes/tiles/tile_set.tres" id="1_beh8d"]
 [ext_resource type="PackedScene" uid="uid://b2ync4ygwbf4t" path="res://scenes/player/player.tscn" id="2_beh8d"]
 [ext_resource type="PackedScene" uid="uid://c7ulna0tu1fx" path="res://scenes/player/camera_2D.tscn" id="2_s7nh2"]
-[ext_resource type="PackedScene" uid="uid://cv7p17vbsy3wg" path="res://scenes/LightSource.tscn" id="4_311d0"]
+[ext_resource type="PackedScene" uid="uid://3hscd5gcbcdj" path="res://scenes/tiles/ambience.tscn" id="4_2bdvq"]
+[ext_resource type="AudioStream" uid="uid://bxdk4vt7r4g01" path="res://audio/ambience/dungeon-air.wav" id="5_4skr2"]
 [ext_resource type="PackedScene" uid="uid://bphgkwouy8mgs" path="res://scenes/tiles/UI/ui.tscn" id="5_dgahj"]
 [ext_resource type="PackedScene" uid="uid://c7xsmuj388cqa" path="res://scenes/tiles/UI/fog_layer.tscn" id="6_2bdvq"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dgahj"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(2100, 1080, 1)
-angle_min = 15.0000105
-angle_max = 25.000011
-direction = Vector3(1, -1, 0)
-initial_velocity_min = 10.0
-initial_velocity_max = 25.0
-gravity = Vector3(0, -10, 0)
-scale_min = 6.0499997
-scale_max = 6.0499997
-turbulence_enabled = true
 
 [sub_resource type="Environment" id="Environment_311d0"]
 background_mode = 3
@@ -65,16 +52,6 @@ tile_set = ExtResource("1_beh8d")
 
 [node name="Enviroment" type="Node2D" parent="." unique_id=538283779]
 
-[node name="DustParticles" type="GPUParticles2D" parent="Enviroment" unique_id=1612440778]
-modulate = Color(0.97401303, 0.9272073, 0.8669776, 0.5294118)
-z_index = 6
-position = Vector2(-218, -295)
-amount = 100
-lifetime = 6.0
-randomness = 0.5
-visibility_rect = Rect2(-2000, -2000, 4000, 4000)
-process_material = SubResource("ParticleProcessMaterial_dgahj")
-
 [node name="Y_SortLayer" type="Node2D" parent="Enviroment" unique_id=1380398732]
 y_sort_enabled = true
 
@@ -92,24 +69,10 @@ tile_set = ExtResource("1_beh8d")
 position = Vector2(-1346, -162)
 dash_cooldown_ui = NodePath("../../../UI/CanvasLayer/DashCooldown")
 
-[node name="Light" parent="Enviroment/Y_SortLayer" unique_id=1578226890 instance=ExtResource("4_311d0")]
-position = Vector2(-307, -779)
-
-[node name="GlobalLight" parent="Enviroment/Y_SortLayer" unique_id=1770434996 instance=ExtResource("4_311d0")]
-position = Vector2(-306.00012, -377.00012)
-scale = Vector2(3.5512795, 3.0650349)
-
-[node name="Light3" parent="Enviroment/Y_SortLayer" unique_id=347656045 instance=ExtResource("4_311d0")]
-position = Vector2(-1347, -260)
-
-[node name="Light4" parent="Enviroment/Y_SortLayer" unique_id=1428494490 instance=ExtResource("4_311d0")]
-position = Vector2(-325, 265)
-
-[node name="Light2" parent="Enviroment/Y_SortLayer" unique_id=1564189870 instance=ExtResource("4_311d0")]
-position = Vector2(746, -324)
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Enviroment" unique_id=1821112813]
 blend_mode = 1
+
+[node name="Ambience" parent="Enviroment" unique_id=1217222588 instance=ExtResource("4_2bdvq")]
 
 [node name="UI" parent="." unique_id=1032464629 instance=ExtResource("5_dgahj")]
 
@@ -117,5 +80,13 @@ blend_mode = 1
 environment = SubResource("Environment_311d0")
 
 [node name="FogLayer" parent="." unique_id=1255796293 instance=ExtResource("6_2bdvq")]
+
+[node name="AudioLayer" type="Node2D" parent="." unique_id=606846978]
+
+[node name="DungeonAir" type="AudioStreamPlayer2D" parent="AudioLayer" unique_id=1341775275]
+position = Vector2(-704, 147)
+stream = ExtResource("5_4skr2")
+autoplay = true
+bus = &"Ambience"
 
 [editable path="UI"]
