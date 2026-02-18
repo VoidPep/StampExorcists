@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b2ync4ygwbf4t" path="res://scenes/player/player.tscn" id="2_beh8d"]
 [ext_resource type="PackedScene" uid="uid://c7ulna0tu1fx" path="res://scenes/player/camera_2D.tscn" id="2_s7nh2"]
 [ext_resource type="PackedScene" uid="uid://cv7p17vbsy3wg" path="res://scenes/LightSource.tscn" id="4_311d0"]
-[ext_resource type="PackedScene" uid="uid://bphgkwouy8mgs" path="res://scenes/tiles/ui.tscn" id="5_dgahj"]
+[ext_resource type="PackedScene" uid="uid://bphgkwouy8mgs" path="res://scenes/tiles/UI/ui.tscn" id="5_dgahj"]
+[ext_resource type="PackedScene" uid="uid://c7xsmuj388cqa" path="res://scenes/tiles/UI/fog_layer.tscn" id="6_2bdvq"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dgahj"]
 particle_flag_disable_z = true
@@ -94,6 +95,10 @@ dash_cooldown_ui = NodePath("../../../UI/CanvasLayer/DashCooldown")
 [node name="Light" parent="Enviroment/Y_SortLayer" unique_id=1578226890 instance=ExtResource("4_311d0")]
 position = Vector2(-307, -779)
 
+[node name="GlobalLight" parent="Enviroment/Y_SortLayer" unique_id=1770434996 instance=ExtResource("4_311d0")]
+position = Vector2(-306.00012, -377.00012)
+scale = Vector2(3.5512795, 3.0650349)
+
 [node name="Light3" parent="Enviroment/Y_SortLayer" unique_id=347656045 instance=ExtResource("4_311d0")]
 position = Vector2(-1347, -260)
 
@@ -110,5 +115,7 @@ blend_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1316803332]
 environment = SubResource("Environment_311d0")
+
+[node name="FogLayer" parent="." unique_id=1255796293 instance=ExtResource("6_2bdvq")]
 
 [editable path="UI"]

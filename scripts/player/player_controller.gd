@@ -14,7 +14,9 @@ const DASH_COOLDOWN := 0.6
 const SPEED = 500.0
 const DASH_SPEED := 1400.0
 const DASH_DURATION := 0.09
+const DEFAULT_IDLE := "idle_left"
 
+var last_direction : String
 var dash_cooldown_timer := 0.0
 var can_dash : bool = true
 var is_dashing : bool = false

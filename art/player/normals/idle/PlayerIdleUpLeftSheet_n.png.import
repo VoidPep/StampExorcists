@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gjkfi4iq6qmp"
-path="res://.godot/imported/PlayerRunningUpLeft.png-367b2f31488fce78b3b8e31ae4c0850d.ctex"
+uid="uid://krl6t8i27wtq"
+path="res://.godot/imported/PlayerIdleUpLeftSheet_n.png-e3a6e2b14ca7d7b4d87708484699d9e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/player/sprite_sheet/PlayerRunningUpLeft.png"
-dest_files=["res://.godot/imported/PlayerRunningUpLeft.png-367b2f31488fce78b3b8e31ae4c0850d.ctex"]
+source_file="res://art/player/normals/idle/PlayerIdleUpLeftSheet_n.png"
+dest_files=["res://.godot/imported/PlayerIdleUpLeftSheet_n.png-e3a6e2b14ca7d7b4d87708484699d9e0.ctex"]
 
 [params]
 
