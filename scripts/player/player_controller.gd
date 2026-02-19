@@ -17,6 +17,8 @@ const DASH_DURATION := 0.09
 const DEFAULT_IDLE := "idle_left"
 
 var last_direction : String
+# se for down left -> o ataque vai sair para down
+
 var dash_cooldown_timer := 0.0
 var can_dash : bool = true
 var is_dashing : bool = false

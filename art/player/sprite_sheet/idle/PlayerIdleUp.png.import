@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b08c4t03ptkwl"
-path="res://.godot/imported/PlayerIdleUpRight_NoHammer.png-078b86b7fda97dfff280cde962208bbd.ctex"
+uid="uid://dw3lfj8ffy6bg"
+path="res://.godot/imported/PlayerIdleUp.png-a8eca514493f09145a782fc97269150f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/player/sprite_sheet/attack/PlayerIdleUpRight_NoHammer.png"
-dest_files=["res://.godot/imported/PlayerIdleUpRight_NoHammer.png-078b86b7fda97dfff280cde962208bbd.ctex"]
+source_file="res://art/player/sprite_sheet/idle/PlayerIdleUp.png"
+dest_files=["res://.godot/imported/PlayerIdleUp.png-a8eca514493f09145a782fc97269150f.ctex"]
 
 [params]
 

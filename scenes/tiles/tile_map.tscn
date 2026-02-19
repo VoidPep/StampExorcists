@@ -26,6 +26,15 @@ adjustment_enabled = true
 adjustment_contrast = 1.05
 adjustment_saturation = 1.2
 
+[sub_resource type="Gradient" id="Gradient_4skr2"]
+colors = PackedColorArray(1, 1, 0.8977666, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eywpb"]
+gradient = SubResource("Gradient_4skr2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="Game" type="Node2D" unique_id=1234038209]
 
 [node name="Camera2D" parent="." unique_id=610344045 node_paths=PackedStringArray("target") instance=ExtResource("2_s7nh2")]
@@ -66,7 +75,7 @@ tile_map_data = PackedByteArray("AADy/wMAAgAIAAUAAQDy/wQAAgAIAAUAAQDz/wQAAgAIAAU
 tile_set = ExtResource("1_beh8d")
 
 [node name="CharacterBody2D" parent="Enviroment/Y_SortLayer" unique_id=1791341929 node_paths=PackedStringArray("dash_cooldown_ui") instance=ExtResource("2_beh8d")]
-position = Vector2(-1346, -162)
+position = Vector2(-696, -355)
 dash_cooldown_ui = NodePath("../../../UI/CanvasLayer/DashCooldown")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Enviroment" unique_id=1821112813]
@@ -83,10 +92,13 @@ environment = SubResource("Environment_311d0")
 
 [node name="AudioLayer" type="Node2D" parent="." unique_id=606846978]
 
-[node name="DungeonAir" type="AudioStreamPlayer2D" parent="AudioLayer" unique_id=1341775275]
-position = Vector2(-704, 147)
+[node name="DungeonAir" type="AudioStreamPlayer" parent="AudioLayer" unique_id=1508125810]
 stream = ExtResource("5_4skr2")
 autoplay = true
-bus = &"Ambience"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2023003348]
+position = Vector2(-174.99994, -905)
+scale = Vector2(21.829157, 17.597147)
+texture = SubResource("GradientTexture2D_eywpb")
 
 [editable path="UI"]

@@ -16,10 +16,6 @@ func update(delta: float):
 		state_changer.emit(self, "playerrun")
 
 const IDLE_ANIMATIONS = {
-	"running_left": "idle_left",
-	"running_right": "idle_right",
-	"running_up_left": "idle_up_left",
-	"running_up_right": "idle_up_right",
-	"running_down_left": "idle_down_left",
-	"running_down_right": "idle_down_right"
+	"running_up": "idle_up",
+	"running_down": "idle_down"
 }

@@ -38,13 +38,16 @@ func get_run_animation(direction: Vector2) -> String:
 		x = player.last_horizontal
 		
 	var key = Vector2(sign(x), sign(y))
+	
+	player.animated_sprite.flip_h = true if sign(x) == 1 else false
+	
 	return RUN_ANIMATIONS.get(key, player.DEFAULT_IDLE)
 
 const RUN_ANIMATIONS = {
-	Vector2(-1, 0): "running_down_left",
-	Vector2(1, 0): "running_down_right",
-	Vector2(-1, -1): "running_up_left",
-	Vector2(1, -1): "running_up_right",
-	Vector2(-1, 1): "running_down_left",
-	Vector2(1, 1): "running_down_right"
+	Vector2(-1, 0): "running_down",
+	Vector2(1, 0): "running_down",
+	Vector2(-1, -1): "running_up",
+	Vector2(1, -1): "running_up",
+	Vector2(-1, 1): "running_down",
+	Vector2(1, 1): "running_down"
 }
