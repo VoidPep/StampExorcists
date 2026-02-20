@@ -75,7 +75,7 @@ tile_map_data = PackedByteArray("AADy/wMAAgAIAAUAAQDy/wQAAgAIAAUAAQDz/wQAAgAIAAU
 tile_set = ExtResource("1_beh8d")
 
 [node name="CharacterBody2D" parent="Enviroment/Y_SortLayer" unique_id=1791341929 node_paths=PackedStringArray("dash_cooldown_ui") instance=ExtResource("2_beh8d")]
-position = Vector2(-696, -355)
+position = Vector2(-474, -383)
 dash_cooldown_ui = NodePath("../../../UI/CanvasLayer/DashCooldown")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Enviroment" unique_id=1821112813]
