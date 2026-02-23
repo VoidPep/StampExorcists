@@ -2,14 +2,24 @@ extends State
 class_name PlayerRun
 
 var actual_direction : String = ""
+
+func enter():
+	player.step_dust_particles.emitting = true
+	connect_event(player.attack_pressed,_on_attack_pressed)
+		
+func exit():
+	player.last_direction = actual_direction
+	player.step_dust_particles.emitting = false
+	disconnect_event(player.attack_pressed,_on_attack_pressed)
+
 func physics_update(delta):
-	var direction = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
+	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
 	
 	player.velocity = direction * player.SPEED
 	player.move_and_slide()
 		
 	if direction == Vector2.ZERO:
-		state_changer.emit(self, "playeridle")
+		request_transition.emit("playeridle")
 		return
 		
 	if direction.x != 0:
@@ -21,15 +31,11 @@ func physics_update(delta):
 	if Input.is_action_just_pressed("dash") and direction != Vector2.ZERO and player.can_dash:
 		player.can_dash = false
 		player.dash_direction = direction.normalized()
-		state_changer.emit(self, "playerdash")
-
-func enter():
-	player.step_dust_particles.emitting = true
-		
-func exit():
-	player.last_direction = actual_direction
-	player.step_dust_particles.emitting = false
-
+		request_transition.emit("playerdash")
+	
+func _on_attack_pressed():
+	request_transition.emit("playerattack")
+	
 func get_run_animation(direction: Vector2) -> String:
 	var x = direction.x
 	var y = direction.y
@@ -39,6 +45,7 @@ func get_run_animation(direction: Vector2) -> String:
 		
 	var key = Vector2(sign(x), sign(y))
 	
+	player.last_direction_vect_2 = key
 	player.animated_sprite.flip_h = true if sign(x) == 1 else false
 	
 	return RUN_ANIMATIONS.get(key, player.DEFAULT_IDLE)

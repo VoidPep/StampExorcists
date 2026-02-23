@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://bqs12xk4s0o7d"]
+
+[ext_resource type="Texture2D" uid="uid://dboeff5bl0iav" path="res://art/enemy/EnemyRunningDown.png" id="1_cqlax"]
+[ext_resource type="Texture2D" uid="uid://c5bmtaavtwewf" path="res://art/enemy/normals/EnemyRunningDown_n.png" id="2_3yvk0"]
+
+[resource]
+diffuse_texture = ExtResource("1_cqlax")
+normal_texture = ExtResource("2_3yvk0")

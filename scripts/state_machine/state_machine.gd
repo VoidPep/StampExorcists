@@ -6,17 +6,17 @@ var current_state : State
 var states : Dictionary = {}
 
 func _ready() -> void:
+	var player = $"../.."
+	
 	for child in get_children():
 		if child is State:
+			child.setup(player)
 			states[child.name.to_lower()] = child
-			print_debug(child.name.to_lower())
-			
-			child.state_changer.connect(on_state_changed)
+			child.request_transition.connect(_on_request_transition)
 			
 	if initial_state:
-		initial_state.enter()
 		current_state = initial_state
-
+		current_state.enter()
 
 func _process(delta: float) -> void:
 	if current_state:
@@ -25,15 +25,21 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	current_state.physics_update(delta)
 
-func on_state_changed(state: State, new_state_name: String) -> void:
-	if state != current_state:
-		return
-		
-	var new_state =  states.get(new_state_name.to_lower())
+	
+func _on_request_transition(new_state_name: String) -> void:
 	if not current_state:
 		return
 		
-	current_state.exit()	
+	if not current_state.can_exit():
+		return
+		
+	var new_state = states.get(new_state_name.to_lower())
+	if not new_state:
+		return
+		
+	if not new_state.can_enter():
+		return
+		
+	current_state.exit()
 	current_state = new_state
 	current_state.enter()
-	

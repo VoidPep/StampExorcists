@@ -20,7 +20,7 @@ func physics_update(delta):
 	update_animated_sprite()
 	
 	if timer <= 0:
-		state_changer.emit(self, "playeridle")
+		request_transition.emit("playeridle")
 
 func update_animated_sprite():
 	var frame_texture = player.animated_sprite.sprite_frames.get_frame_texture(

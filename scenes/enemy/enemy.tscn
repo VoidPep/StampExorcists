@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://bjoks4bavokid"]
+
+[ext_resource type="Script" uid="uid://dfu028l5cf2jm" path="res://scripts/enemy/enemy.gd" id="1_a3pup"]
+[ext_resource type="Texture2D" uid="uid://bqs12xk4s0o7d" path="res://art/enemy/EnemyResource.tres" id="2_a3pup"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40wdo"]
+atlas = ExtResource("2_a3pup")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjssy"]
+atlas = ExtResource("2_a3pup")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl05p"]
+atlas = ExtResource("2_a3pup")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwlon"]
+atlas = ExtResource("2_a3pup")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbhyu"]
+atlas = ExtResource("2_a3pup")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13gj6"]
+atlas = ExtResource("2_a3pup")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4efjx"]
+atlas = ExtResource("2_a3pup")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvxgb"]
+atlas = ExtResource("2_a3pup")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cwlon"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40wdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjssy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl05p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwlon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbhyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13gj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4efjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvxgb")
+}],
+"loop": true,
+"name": &"enemy_idle",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbhyu"]
+size = Vector2(138, 205)
+
+[sub_resource type="Animation" id="Animation_a3pup"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_40wdo"]
+resource_name = "blink"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.6111891, 0.006276069, 2.4065375e-07, 0.5019608), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tjssy"]
+_data = {
+&"RESET": SubResource("Animation_a3pup"),
+&"blink": SubResource("Animation_40wdo")
+}
+
+[sub_resource type="Gradient" id="Gradient_a3pup"]
+colors = PackedColorArray(0.92258066, 0.92258066, 0.92258066, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_40wdo"]
+gradient = SubResource("Gradient_a3pup")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2019141607]
+y_sort_enabled = true
+script = ExtResource("1_a3pup")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1557376808]
+clip_children = 2
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_cwlon")
+animation = &"enemy_idle"
+frame_progress = 0.8173121
+offset = Vector2(0, -28)
+
+[node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D" unique_id=897978705]
+offset_left = -22.333334
+offset_top = -61.333336
+offset_right = 20.000002
+offset_bottom = 3.3333359
+color = Color(1, 1, 1, 0)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=699233074]
+
+[node name="HurtHitbox" type="CollisionShape2D" parent="Area2D" unique_id=1336194228]
+position = Vector2(-2, -83)
+shape = SubResource("RectangleShape2D_nbhyu")
+
+[node name="GeneralHitbox" type="CollisionPolygon2D" parent="." unique_id=763355774]
+position = Vector2(39, -216)
+scale = Vector2(2.706546, 3.32334)
+polygon = PackedVector2Array(-27, 61, -15, 68, -1.4779015, 61.684937, -15, 55)
+
+[node name="Stamp" type="Node2D" parent="." unique_id=1731232290]
+
+[node name="Effects" type="AnimationPlayer" parent="." unique_id=1887454195]
+libraries/ = SubResource("AnimationLibrary_tjssy")
+
+[node name="HitTimer" type="Timer" parent="." unique_id=722657814]
+one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=968824770]
+position = Vector2(1, -16)
+scale = Vector2(5.703125, 2.6718748)
+color = Color(0.71340877, 0.36406806, 0.26704252, 1)
+texture = SubResource("GradientTexture2D_40wdo")

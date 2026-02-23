@@ -1,8 +1,10 @@
 [gd_resource type="CanvasTexture" format=3 uid="uid://dqf5egdxgtiwc"]
 
 [ext_resource type="Texture2D" uid="uid://dqg2psvyd34od" path="res://art/player/sprite_sheet/attack/PlayerAttackDown.png" id="1_afguq"]
-[ext_resource type="Texture2D" uid="uid://dew1as627sroh" path="res://art/player/normals/atack/PlayerAttackDown_n.png" id="2_djc7i"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_afguq"]
+load_path = "res://.godot/imported/PlayerAttackDown_n.png-7eaad374fb0e5835c9407786b481fa1a.ctex"
 
 [resource]
 diffuse_texture = ExtResource("1_afguq")
-normal_texture = ExtResource("2_djc7i")
+normal_texture = SubResource("CompressedTexture2D_afguq")

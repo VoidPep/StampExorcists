@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://85us1xqpgycs"]
+
+[ext_resource type="Script" uid="uid://jjryfuy5cx10" path="res://scenes/initial_cutscene/initial_cutscene.gd" id="1_8nf7k"]
+[ext_resource type="Texture2D" uid="uid://dnprxkm52siyd" path="res://scenes/initial_cutscene/images/StampExorcistIntro1.png" id="2_p75ap"]
+
+[node name="InitialCutscene" type="Control" unique_id=697781528]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8nf7k")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1068654960]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.48136652, 0.47987297)
+texture = ExtResource("2_p75ap")
+
+[node name="Label" type="Label" parent="." unique_id=439409809]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 548.0
+offset_right = 71.0
+offset_bottom = 571.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=229475914]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 533.0
+offset_right = 42.0
+offset_bottom = 573.0
+scale = Vector2(28.879995, 2.84)
+color = Color(0, 0, 0, 0.39215687)

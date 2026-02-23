@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bgbp65wufd8cm" path="res://art/player/resources/idle/PlayerIdleUpLeft.tres" id="3_je7p5"]
 [ext_resource type="Texture2D" uid="uid://op62jenjt38t" path="res://art/player/resources/idle/PlayerIdleDownLeft.tres" id="3_ugbui"]
 [ext_resource type="Script" uid="uid://dg2j37mgwrvo" path="res://scripts/player/player_idle.gd" id="4_lvxji"]
-[ext_resource type="Texture2D" uid="uid://vc0t8fna66vk" path="res://art/player/resources/attack/PlayerAtackUp.tres" id="4_ugbui"]
 [ext_resource type="Texture2D" uid="uid://62sbn0a7drrj" path="res://art/player/resources/run/PlayerRunningLeft.tres" id="5_5gtgg"]
 [ext_resource type="Script" uid="uid://cio6eiibetukd" path="res://scripts/player/player_dash.gd" id="5_75vfm"]
 [ext_resource type="Texture2D" uid="uid://dvc6a0w1bgrnn" path="res://art/player/resources/run/PlayerRunningUpLeft.tres" id="5_je7p5"]
@@ -150,54 +149,6 @@ region = Rect2(960, 0, 96, 64)
 atlas = ExtResource("3_fm80t")
 region = Rect2(1056, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pk8ii"]
-atlas = ExtResource("4_ugbui")
-region = Rect2(0, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5mf0n"]
-atlas = ExtResource("4_ugbui")
-region = Rect2(96, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4hvnv"]
-atlas = ExtResource("4_ugbui")
-region = Rect2(192, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bbmj2"]
-atlas = ExtResource("4_ugbui")
-region = Rect2(288, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kxw46"]
-atlas = ExtResource("4_ugbui")
-region = Rect2(384, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8qxvo"]
-atlas = ExtResource("4_ugbui")
-region = Rect2(480, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5q8fn"]
-atlas = ExtResource("4_ugbui")
-region = Rect2(576, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wva7c"]
-atlas = ExtResource("4_ugbui")
-region = Rect2(672, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ds1xl"]
-atlas = ExtResource("4_ugbui")
-region = Rect2(768, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1u1sw"]
-atlas = ExtResource("4_ugbui")
-region = Rect2(864, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2t3bg"]
-atlas = ExtResource("4_ugbui")
-region = Rect2(960, 0, 96, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jrbya"]
-atlas = ExtResource("4_ugbui")
-region = Rect2(1056, 0, 96, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kssj8"]
 atlas = ExtResource("3_ugbui")
 region = Rect2(0, 0, 64, 64)
@@ -333,50 +284,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tffgl")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack_down",
-"speed": 25.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pk8ii")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5mf0n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4hvnv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bbmj2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kxw46")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8qxvo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5q8fn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wva7c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ds1xl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1u1sw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2t3bg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jrbya")
-}],
-"loop": false,
-"name": &"attack_up",
-"speed": 25.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -472,7 +382,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_je7p5"]
-size = Vector2(285.875, 104)
+size = Vector2(253, 104)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1791341929 node_paths=PackedStringArray("animated_sprite") groups=["Player"]]
 collision_layer = 2
@@ -526,41 +436,34 @@ y_sort_enabled = true
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qek5x")
-animation = &"attack_up"
+animation = &"attack_down"
 offset = Vector2(0, -28)
 
 [node name="StateMachine" type="Node2D" parent="Brain" unique_id=1440464057 node_paths=PackedStringArray("initial_state")]
-position = Vector2(0, 1)
 script = ExtResource("3_gmlin")
 initial_state = NodePath("PlayerIdle")
 
-[node name="PlayerIdle" type="Node" parent="Brain/StateMachine" unique_id=837728058]
+[node name="PlayerIdle" type="Node" parent="Brain/StateMachine" unique_id=837728058 node_paths=PackedStringArray("player")]
 script = ExtResource("4_lvxji")
+player = NodePath("../../..")
 metadata/_custom_type_script = "uid://dg2j37mgwrvo"
 
-[node name="PlayerDash" type="Node" parent="Brain/StateMachine" unique_id=1039778062]
+[node name="PlayerDash" type="Node" parent="Brain/StateMachine" unique_id=1039778062 node_paths=PackedStringArray("player")]
 script = ExtResource("5_75vfm")
+player = NodePath("../../..")
 metadata/_custom_type_script = "uid://cio6eiibetukd"
 
-[node name="PlayerRun" type="Node" parent="Brain/StateMachine" unique_id=104326668]
+[node name="PlayerRun" type="Node" parent="Brain/StateMachine" unique_id=104326668 node_paths=PackedStringArray("player")]
 script = ExtResource("6_0owmy")
+player = NodePath("../../..")
 metadata/_custom_type_script = "uid://d2vsawc6gfyg3"
 
 [node name="PlayerAttack" type="Node" parent="Brain/StateMachine" unique_id=302347502]
 script = ExtResource("12_fm80t")
 
-[node name="AttackHitboxDown" type="Area2D" parent="Brain" unique_id=256053476]
+[node name="AttackHitbox" type="Area2D" parent="Brain" unique_id=256053476]
 script = ExtResource("13_gx1jg")
 
-[node name="CollisionDown" type="CollisionShape2D" parent="Brain/AttackHitboxDown" unique_id=1291852835]
-position = Vector2(9, -48)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brain/AttackHitbox" unique_id=1291852835]
+position = Vector2(0, -62)
 shape = SubResource("RectangleShape2D_je7p5")
-debug_color = Color(0.258091, 0.4362418, 0, 0.41960785)
-
-[node name="AttackHitboxUp" type="Area2D" parent="Brain" unique_id=271901890]
-script = ExtResource("13_gx1jg")
-
-[node name="CollisionUp" type="CollisionShape2D" parent="Brain/AttackHitboxUp" unique_id=48400698]
-position = Vector2(9, -123)
-shape = SubResource("RectangleShape2D_je7p5")
-debug_color = Color(0.25934353, 0.40159371, 0.015144822, 0.41960785)

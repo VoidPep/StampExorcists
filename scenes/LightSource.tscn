@@ -11,9 +11,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.37606838, 0)
 
-[node name="Node2D" type="Node2D" unique_id=1578226890]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1248726152]
+[node name="Sprite2D" type="Sprite2D" unique_id=1248726152]
 visible = false
 texture = ExtResource("1_kmpme")
 
