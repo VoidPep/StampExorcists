@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cyer6l1pep10r"]
+
+[sub_resource type="Animation" id="Animation_a3pup"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_40wdo"]
+resource_name = "blink"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.6111891, 0.006276069, 2.4065375e-07, 0.5019608), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tjssy"]
+_data = {
+&"RESET": SubResource("Animation_a3pup"),
+&"blink": SubResource("Animation_40wdo")
+}
+
+[node name="Effects" type="AnimationPlayer" unique_id=399662672]
+libraries/ = SubResource("AnimationLibrary_tjssy")

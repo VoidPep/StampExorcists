@@ -182,7 +182,7 @@ script = ExtResource("4_tjssy")
 [node name="GeneralHitbox" type="CollisionPolygon2D" parent="Area2D" unique_id=763355774]
 position = Vector2(39, -216)
 scale = Vector2(2.706546, 3.32334)
-polygon = PackedVector2Array(-27, 61, -15, 68, -1.4779015, 61.684937, -15, 55)
+polygon = PackedVector2Array(-30.296913, 52.958767, -31.774813, 68.605675, 1.4778986, 67.70297, -0.3694744, 53.56057)
 
 [node name="Stamp" type="Node2D" parent="." unique_id=1731232290]
 

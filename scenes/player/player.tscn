@@ -475,6 +475,44 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_je7p5"]
 size = Vector2(278.9375, 105)
 
+[sub_resource type="Animation" id="Animation_fcs02"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Brain/AnimatedSprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.6039216, 0.15294118, 0.1254902, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_myrg7"]
+resource_name = "blink"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Brain/AnimatedSprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.60279655, 0.15319282, 0.12680972, 0.6313726), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvlxm"]
+_data = {
+&"RESET": SubResource("Animation_fcs02"),
+&"blink": SubResource("Animation_myrg7")
+}
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1791341929 node_paths=PackedStringArray("animated_sprite") groups=["Player"]]
 collision_layer = 2
 collision_mask = 2
@@ -526,11 +564,19 @@ light_mask = 3
 y_sort_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Brain" unique_id=1354088878]
+clip_children = 2
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qek5x")
 animation = &"running_down"
 offset = Vector2(0, -28)
+
+[node name="ColorRect" type="ColorRect" parent="Brain/AnimatedSprite2D" unique_id=2104003414]
+offset_left = -34.666668
+offset_top = -64.66667
+offset_right = 34.000004
+offset_bottom = 4.0
+color = Color(0.6039216, 0.15294118, 0.1254902, 0)
 
 [node name="StateMachine" type="Node2D" parent="Brain" unique_id=1440464057 node_paths=PackedStringArray("initial_state")]
 position = Vector2(0, 1)
@@ -571,3 +617,8 @@ script = ExtResource("13_gx1jg")
 position = Vector2(9, -123)
 shape = SubResource("RectangleShape2D_je7p5")
 debug_color = Color(0.25934353, 0.40159371, 0.015144822, 0.41960785)
+
+[node name="HitTimer" type="Timer" parent="." unique_id=1400034342]
+
+[node name="Effects" type="AnimationPlayer" parent="." unique_id=1929919378]
+libraries/ = SubResource("AnimationLibrary_kvlxm")

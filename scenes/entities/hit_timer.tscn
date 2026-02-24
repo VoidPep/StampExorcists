@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dewfsib2uxig4"]
+
+[node name="HitTimer" type="Timer" unique_id=1805862010]
+one_shot = true

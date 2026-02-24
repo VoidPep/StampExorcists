@@ -7,6 +7,7 @@ func _on_body_entered(body):
 	
 	if body.has_method("receive_hit"):
 		var hit_data = {
-			"damage": 1
+			"damage": 1,
+			"knockback": (body.global_position - global_position).normalized()
 		}
 		body.receive_hit(hit_data)

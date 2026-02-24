@@ -6,6 +6,9 @@ class_name Player
 @onready var attack_hitbox_up : = $Brain/AttackHitboxUp/CollisionUp
 @onready var attack_hitbox_down : = $Brain/AttackHitboxDown/CollisionDown
 @onready var state_machine = StateMachine
+@onready var effects : AnimationPlayer = $Effects
+@onready var hit_timer : Timer = $HitTimer
+@onready var camera : MainCamera = $Camera2D
 
 @export var animated_sprite : AnimatedSprite2D
 @export var dash_cooldown_ui : TextureProgressBar
@@ -28,6 +31,8 @@ var is_dashing : bool = false
 var dash_direction: Vector2 = Vector2.ZERO
 var last_horizontal := 1
 var actual_hp := MAX_HP
+var is_invincible : bool = false
+var is_dead : bool = false
 
 signal attack_pressed
 signal dash_pressed
@@ -108,5 +113,40 @@ func disable_attack_hitbox():
 	attack_hitbox_up.disabled = true
 	attack_hitbox_down.disabled = true
 	
-func receive_hit(hit_data):
+func receive_hit(hit_data: Dictionary) -> void:
+	if is_invincible or is_dead:
+		return
+	
 	actual_hp -= hit_data.damage
+	
+	apply_knockback(hit_data.get("knockback", Vector2.ZERO))
+	play_hit_feedback()
+	
+	# emit_signal("hp_changed", actual_hp)
+	
+	if actual_hp <= 0:
+		die()
+		
+func play_hit_feedback() -> void:
+	GlobalAudioManager.play_sfx(GlobalAudioManager.HIT, 0.0)
+	
+	is_invincible = true
+	effects.play("blink")
+	hit_timer.start()
+	await hit_timer.timeout
+	effects.play("RESET")
+	is_invincible = false
+	
+func apply_knockback(force: Vector2) -> void:
+	if force == Vector2.ZERO:
+		return
+	velocity = force * 400.0
+	move_and_slide()
+	await get_tree().create_timer(0.1).timeout
+	
+	camera.shake_strength = 8
+	
+	velocity = Vector2.ZERO
+
+func die():
+	pass
