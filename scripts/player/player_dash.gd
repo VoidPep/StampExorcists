@@ -15,6 +15,7 @@ func exit():
 func physics_update(delta):
 	timer -= delta
 	
+	GlobalAudioManager.play_sfx(GlobalAudioManager.DASH)
 	player.velocity = player.dash_direction * player.DASH_SPEED
 	player.move_and_slide()
 	update_animated_sprite()

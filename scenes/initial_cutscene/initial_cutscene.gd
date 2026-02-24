@@ -67,4 +67,7 @@ func next_scene():
 		show_scene()
 
 func start_game():
-	get_tree().change_scene_to_file("res://scenes/tiles/game_test.tscn")
+	SceneManager.change_scene("res://scenes/tiles/game_test.tscn", image)
+	
+	GlobalAudioManager.play_music(GlobalAudioManager.MUSIC_COMBAT)
+	

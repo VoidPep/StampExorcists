@@ -14,11 +14,17 @@ Segue todos os assets que NÓS desenvolvemos:
 	- Sound Effects utilizando https://sfxr.me/ para gerar os áudios 8-bit style
 
 CRÉDITOS:
-	Som ambiente:
-	Dungeon Air - https://freesound.org/people/Flamiffer/sounds/530161/
-	
 	Fog e vignette
 	https://godotshaders.com/shader/vignette-3/
 	https://godotshaders.com/shader/screen-fog-with-camera-offset/
 	https://opengameart.org/content/thick-fog
 	
+	Dissolve shader:
+	https://godotshaders.com/shader/simple-2d-dissolve/
+	
+	Musicas:
+	Cutscene: https://opengameart.org/content/ciptuned-rock-tune
+	Combate: https://opengameart.org/content/unchained-destiny-rock
+	Boss: https://opengameart.org/content/boss-battle-6-metal-alternate
+	Game over: https://opengameart.org/content/game-over
+	Menu: https://opengameart.org/content/rock-theme

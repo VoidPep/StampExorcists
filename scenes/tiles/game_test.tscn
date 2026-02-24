@@ -2,13 +2,11 @@
 
 [ext_resource type="TileSet" uid="uid://8nxyjkfydhux" path="res://scenes/tiles/tile_set.tres" id="1_beh8d"]
 [ext_resource type="PackedScene" uid="uid://b2ync4ygwbf4t" path="res://scenes/player/player.tscn" id="2_beh8d"]
-[ext_resource type="PackedScene" uid="uid://c7ulna0tu1fx" path="res://scenes/player/camera_2D.tscn" id="2_s7nh2"]
 [ext_resource type="PackedScene" uid="uid://3hscd5gcbcdj" path="res://scenes/tiles/ambience.tscn" id="4_2bdvq"]
-[ext_resource type="AudioStream" uid="uid://bxdk4vt7r4g01" path="res://audio/ambience/dungeon-air.wav" id="5_4skr2"]
 [ext_resource type="PackedScene" uid="uid://bphgkwouy8mgs" path="res://scenes/tiles/UI/vignette.tscn" id="5_dgahj"]
 [ext_resource type="PackedScene" uid="uid://bjoks4bavokid" path="res://scenes/enemy/enemy.tscn" id="5_mq7eu"]
 [ext_resource type="PackedScene" uid="uid://c7xsmuj388cqa" path="res://scenes/tiles/UI/fog_layer.tscn" id="6_2bdvq"]
-[ext_resource type="PackedScene" uid="uid://b3rgip5g2fu2j" path="res://scenes/world_environment.tscn" id="8_eywpb"]
+[ext_resource type="PackedScene" uid="uid://b3rgip5g2fu2j" path="res://scenes/enviroment/world_environment.tscn" id="8_eywpb"]
 
 [sub_resource type="Gradient" id="Gradient_4skr2"]
 colors = PackedColorArray(1, 1, 0.8977666, 1, 0, 0, 0, 1)
@@ -20,19 +18,6 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
 [node name="Game" type="Node2D" unique_id=1234038209]
-
-[node name="Camera2D" parent="." unique_id=610344045 node_paths=PackedStringArray("target") instance=ExtResource("2_s7nh2")]
-position = Vector2(205, -167)
-zoom = Vector2(0.75, 0.75)
-position_smoothing_enabled = true
-position_smoothing_speed = 6.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.03
-drag_top_margin = 0.03
-drag_right_margin = 0.03
-drag_bottom_margin = 0.03
-target = NodePath("../Enviroment/Y_SortLayer/CharacterBody2D")
 
 [node name="TileMap" type="Node2D" parent="." unique_id=1653408405]
 position = Vector2(0, 3)
@@ -74,12 +59,6 @@ blend_mode = 1
 [node name="Vignette" parent="." unique_id=1032464629 instance=ExtResource("5_dgahj")]
 
 [node name="FogLayer" parent="." unique_id=1255796293 instance=ExtResource("6_2bdvq")]
-
-[node name="AudioLayer" type="Node2D" parent="." unique_id=606846978]
-
-[node name="DungeonAir" type="AudioStreamPlayer" parent="AudioLayer" unique_id=1508125810]
-stream = ExtResource("5_4skr2")
-autoplay = true
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=2023003348]
 position = Vector2(-1290, -286.00006)

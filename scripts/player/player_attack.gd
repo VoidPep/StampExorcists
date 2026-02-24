@@ -20,6 +20,8 @@ func enter():
 	
 	var animation = get_attack_animation(player.last_direction_vect_2)
 	
+	GlobalAudioManager.play_sfx(GlobalAudioManager.SWING)
+	
 	player.animated_sprite.play(animation)
 	player.animated_sprite.animation_finished.connect(_on_animation_finished)
 

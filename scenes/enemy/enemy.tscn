@@ -1,7 +1,39 @@
 [gd_scene format=3 uid="uid://bjoks4bavokid"]
 
+[ext_resource type="Shader" uid="uid://dyugja7ty2eq2" path="res://scenes/enemy/dissolve.gdshader" id="1_40wdo"]
 [ext_resource type="Script" uid="uid://dfu028l5cf2jm" path="res://scripts/enemy/enemy.gd" id="1_a3pup"]
 [ext_resource type="Texture2D" uid="uid://bqs12xk4s0o7d" path="res://art/enemy/EnemyResource.tres" id="2_a3pup"]
+[ext_resource type="Script" uid="uid://byl6beslnv8hu" path="res://scenes/enemy/enemy_hitbox.gd" id="4_tjssy"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_40wdo"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tjssy"]
+noise = SubResource("FastNoiseLite_40wdo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tjssy"]
+shader = ExtResource("1_40wdo")
+shader_parameter/dissolve_amount = 0.0
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_tjssy")
+shader_parameter/edge_color = Color(1, 0.3, 0, 1)
+shader_parameter/edge_width = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbhyu"]
+size = Vector2(137, 179)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tjssy"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gl05p"]
+width = 1024
+height = 768
+noise = SubResource("FastNoiseLite_tjssy")
+normalize = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_40wdo"]
+shader = ExtResource("1_40wdo")
+shader_parameter/dissolve_amount = 0.0
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_gl05p")
+shader_parameter/edge_color = Color(0.7841423, 0.26014367, 0.36818722, 1)
+shader_parameter/edge_width = 0.1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_40wdo"]
 atlas = ExtResource("2_a3pup")
@@ -67,9 +99,6 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbhyu"]
-size = Vector2(138, 205)
-
 [sub_resource type="Animation" id="Animation_a3pup"]
 length = 0.001
 tracks/0/type = "value"
@@ -120,10 +149,18 @@ fill_to = Vector2(0.5, 0)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2019141607]
 y_sort_enabled = true
+material = SubResource("ShaderMaterial_tjssy")
+collision_layer = 128
+collision_mask = 8
 script = ExtResource("1_a3pup")
+
+[node name="HurtHitbox" type="CollisionShape2D" parent="." unique_id=1336194228]
+position = Vector2(-4.5, -79.5)
+shape = SubResource("RectangleShape2D_nbhyu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1557376808]
 clip_children = 2
+material = SubResource("ShaderMaterial_40wdo")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_cwlon")
 animation = &"enemy_idle"
@@ -138,12 +175,11 @@ offset_bottom = 3.3333359
 color = Color(1, 1, 1, 0)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=699233074]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("4_tjssy")
 
-[node name="HurtHitbox" type="CollisionShape2D" parent="Area2D" unique_id=1336194228]
-position = Vector2(-2, -83)
-shape = SubResource("RectangleShape2D_nbhyu")
-
-[node name="GeneralHitbox" type="CollisionPolygon2D" parent="." unique_id=763355774]
+[node name="GeneralHitbox" type="CollisionPolygon2D" parent="Area2D" unique_id=763355774]
 position = Vector2(39, -216)
 scale = Vector2(2.706546, 3.32334)
 polygon = PackedVector2Array(-27, 61, -15, 68, -1.4779015, 61.684937, -15, 55)

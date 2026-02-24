@@ -10,6 +10,9 @@ class_name Player
 @export var animated_sprite : AnimatedSprite2D
 @export var dash_cooldown_ui : TextureProgressBar
 
+const MAX_HP := 5
+const DAMAGE := 1
+
 const DASH_COOLDOWN := 0.6
 const SPEED = 500.0
 const DASH_SPEED := 1400.0
@@ -24,12 +27,14 @@ var can_dash : bool = true
 var is_dashing : bool = false
 var dash_direction: Vector2 = Vector2.ZERO
 var last_horizontal := 1
+var actual_hp := MAX_HP
 
 signal attack_pressed
 signal dash_pressed
 signal move_input(direction: Vector2)
 
 func _ready():
+	actual_hp = MAX_HP
 	attack_hitbox_up.disabled = true
 	attack_hitbox_down.disabled = true
 	
@@ -67,9 +72,22 @@ func update_dash_ui():
 		#dash_cooldown_ui.value = clamp(progress, 0, 1)
 
 func _on_frame_changed():
-	if not animated_sprite.animation.begins_with("attack"):
+	if animated_sprite.animation.begins_with("attack"):
+		_attack_frame_event()
 		return
 	
+	if animated_sprite.animation.begins_with("running"):
+		_running_frame_event()
+		return
+	
+func _running_frame_event():
+	var frame = animated_sprite.frame
+	
+	if frame == 1 or frame == 5:
+		GlobalAudioManager.play_random_sfx(GlobalAudioManager.WALK, -10.0)
+
+			
+func _attack_frame_event():
 	if animated_sprite.frame == 4:
 		enable_attack_hitbox()
 	
@@ -89,3 +107,6 @@ func enable_attack_hitbox():
 func disable_attack_hitbox():
 	attack_hitbox_up.disabled = true
 	attack_hitbox_down.disabled = true
+	
+func receive_hit(hit_data):
+	actual_hp -= hit_data.damage

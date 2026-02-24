@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3hscd5gcbcdj"]
 
-[ext_resource type="PackedScene" uid="uid://cv7p17vbsy3wg" path="res://scenes/LightSource.tscn" id="1_dfiuu"]
+[ext_resource type="PackedScene" uid="uid://cv7p17vbsy3wg" path="res://scenes/enviroment/light_source.tscn" id="1_dfiuu"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dgahj"]
 particle_flag_disable_z = true

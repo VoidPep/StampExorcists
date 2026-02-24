@@ -8,6 +8,12 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8nf7k")
 
+[node name="Background" type="ColorRect" parent="." unique_id=314476561]
+layout_mode = 0
+offset_right = 1160.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 1)
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1068654960]
 layout_mode = 0
 offset_right = 40.0

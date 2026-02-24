@@ -1,6 +1,7 @@
 extends Camera2D
+class_name MainCamera
 
-@export var target: Node2D
+@onready var target: Player = $".."
 @export var look_ahead_distance := 80.0
 @export var look_ahead_speed := 8.0
 @export var smoothing_speed := 14.0
@@ -17,9 +18,6 @@ func _process(delta):
 	var velocity = target.get("velocity")
 
 	normalize_offset(velocity, delta)
-	
-	if Input.is_key_pressed(KEY_SPACE):
-		shake_strength = 10
 	
 	shake_camera(delta)
 
