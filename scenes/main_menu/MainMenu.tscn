@@ -11,6 +11,7 @@ anchors_preset = 0
 script = ExtResource("1_qmweu")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1721438769]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0

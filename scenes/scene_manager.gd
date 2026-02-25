@@ -20,3 +20,6 @@ func change_scene(path: String, tween_node = null):
 	
 	current_scene = get_tree().current_scene
 	current_scene_path = path
+
+func reload_current_scene():
+	get_tree().reload_current_scene()

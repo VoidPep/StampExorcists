@@ -12,9 +12,11 @@
 [ext_resource type="Script" uid="uid://cio6eiibetukd" path="res://scripts/player/player_dash.gd" id="5_75vfm"]
 [ext_resource type="Texture2D" uid="uid://dvc6a0w1bgrnn" path="res://art/player/resources/run/PlayerRunningUpLeft.tres" id="5_je7p5"]
 [ext_resource type="Script" uid="uid://d2vsawc6gfyg3" path="res://scripts/player/player_run.gd" id="6_0owmy"]
+[ext_resource type="Texture2D" uid="uid://o265bkpyt8ku" path="res://art/player/resources/death/death.tres" id="6_kvlxm"]
 [ext_resource type="Script" uid="uid://dxwuismbktgwa" path="res://scripts/player/player_attack.gd" id="12_fm80t"]
 [ext_resource type="Script" uid="uid://qw0do6v31tky" path="res://scripts/player/attack_hitbox.gd" id="13_gx1jg"]
 [ext_resource type="PackedScene" uid="uid://c7ulna0tu1fx" path="res://scenes/player/camera_2D.tscn" id="15_fcs02"]
+[ext_resource type="Script" uid="uid://r5di0qxp4i25" path="res://scripts/player/player_dead.gd" id="15_myrg7"]
 
 [sub_resource type="Gradient" id="Gradient_75vfm"]
 offsets = PackedFloat32Array(0.08709677, 0.4967742, 1)
@@ -199,6 +201,26 @@ region = Rect2(960, 0, 96, 64)
 atlas = ExtResource("4_ugbui")
 region = Rect2(1056, 0, 96, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahqnk"]
+atlas = ExtResource("6_kvlxm")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb1ce"]
+atlas = ExtResource("6_kvlxm")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ncpa"]
+atlas = ExtResource("6_kvlxm")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln3h3"]
+atlas = ExtResource("6_kvlxm")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdvrm"]
+atlas = ExtResource("6_kvlxm")
+region = Rect2(384, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_kssj8"]
 atlas = ExtResource("3_ugbui")
 region = Rect2(0, 0, 64, 64)
@@ -378,6 +400,26 @@ animations = [{
 "loop": false,
 "name": &"attack_up",
 "speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahqnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb1ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ncpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ln3h3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdvrm")
+}],
+"loop": false,
+"name": &"death",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -568,7 +610,7 @@ clip_children = 2
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qek5x")
-animation = &"running_down"
+animation = &"idle_up"
 offset = Vector2(0, -28)
 
 [node name="ColorRect" type="ColorRect" parent="Brain/AnimatedSprite2D" unique_id=2104003414]
@@ -597,6 +639,9 @@ metadata/_custom_type_script = "uid://d2vsawc6gfyg3"
 
 [node name="PlayerAttack" type="Node" parent="Brain/StateMachine" unique_id=302347502]
 script = ExtResource("12_fm80t")
+
+[node name="PlayerDead" type="Node" parent="Brain/StateMachine" unique_id=1428940314]
+script = ExtResource("15_myrg7")
 
 [node name="AttackHitboxDown" type="Area2D" parent="Brain" unique_id=256053476]
 collision_layer = 8

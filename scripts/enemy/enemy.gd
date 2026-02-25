@@ -6,7 +6,7 @@ class_name Enemy
 @onready var hurt_box = $HurtHitbox
 @onready var hit_box = $Area2D/GeneralHitbox
 
-@export var speed: float = 80.0
+@export var speed: float = 95.0
 @export var acceleration: float = 500.0
 @export var friction: float = 600.0
 @export var max_health: int = 3
@@ -21,6 +21,8 @@ func _ready() -> void:
 	effects.play("RESET")
 	
 	player = get_tree().get_first_node_in_group("Player")
+	
+	$AnimatedSprite2D.material = $AnimatedSprite2D.material.duplicate()
 
 func _physics_process(delta: float) -> void:
 	update_direction()

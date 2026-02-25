@@ -8,7 +8,6 @@ func _ready():
 
 func _on_start_pressed():
 	SceneManager.change_scene("res://scenes/initial_cutscene/InitialCutscene.tscn", $Menu)
-	GlobalAudioManager.play_music(GlobalAudioManager.MUSIC_CUTSCENE)
 	
 
 func _on_exit_pressed():

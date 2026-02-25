@@ -42,6 +42,7 @@ var scenes = [
 ]
 
 func _ready():
+	GlobalAudioManager.play_music(GlobalAudioManager.MUSIC_CUTSCENE)
 	show_scene()
 
 func _input(event):
@@ -68,6 +69,3 @@ func next_scene():
 
 func start_game():
 	SceneManager.change_scene("res://scenes/tiles/game_test.tscn", image)
-	
-	GlobalAudioManager.play_music(GlobalAudioManager.MUSIC_COMBAT)
-	

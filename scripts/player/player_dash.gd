@@ -5,6 +5,7 @@ var timer := 0.0
 
 func enter():
 	timer = player.DASH_DURATION
+	player.is_dashing = true
 	player.dash_particles.emitting = true
 	GlobalAudioManager.play_sfx(GlobalAudioManager.DASH)
 	
@@ -13,6 +14,7 @@ func exit():
 	player.can_dash = false
 	player.dash_cooldown_timer = player.DASH_COOLDOWN
 	player.dash_particles.emitting = false
+	player.is_dashing = false
 	
 func physics_update(delta):
 	timer -= delta

@@ -147,7 +147,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2019141607]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2019141607 groups=["Enemy"]]
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_tjssy")
 collision_layer = 128

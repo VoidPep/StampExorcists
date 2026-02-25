@@ -27,6 +27,7 @@ SceneManager="*uid://buh2goibtycuj"
 [global_group]
 
 Player=""
+Enemy=""
 
 [input]
 

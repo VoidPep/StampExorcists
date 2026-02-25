@@ -18,6 +18,7 @@ const WALK = [
 const MUSIC_MENU = preload("res://audio/musics/menu.wav")
 const MUSIC_CUTSCENE = preload("res://audio/musics/cutscene.wav")
 const MUSIC_COMBAT = preload("res://audio/musics/combat.wav")
+const MUSIC_GAME_OVER = preload("res://audio/musics/game_over.wav")
 
 func _ready():
 	music_player = AudioStreamPlayer.new()

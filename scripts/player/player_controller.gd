@@ -5,7 +5,7 @@ class_name Player
 @onready var dash_particles : GPUParticles2D = $Particles/DashParticles
 @onready var attack_hitbox_up : = $Brain/AttackHitboxUp/CollisionUp
 @onready var attack_hitbox_down : = $Brain/AttackHitboxDown/CollisionDown
-@onready var state_machine = StateMachine
+@onready var state_machine : StateMachine = $Brain/StateMachine
 @onready var effects : AnimationPlayer = $Effects
 @onready var hit_timer : Timer = $HitTimer
 @onready var camera : MainCamera = $Camera2D
@@ -13,7 +13,7 @@ class_name Player
 @export var animated_sprite : AnimatedSprite2D
 @export var dash_cooldown_ui : TextureProgressBar
 
-const MAX_HP := 5
+const MAX_HP := 1
 const DAMAGE := 1
 
 const DASH_COOLDOWN := 0.6
@@ -34,6 +34,7 @@ var actual_hp := MAX_HP
 var is_invincible : bool = false
 var is_dead : bool = false
 
+signal player_died
 signal attack_pressed
 signal dash_pressed
 signal move_input(direction: Vector2)
@@ -114,7 +115,7 @@ func disable_attack_hitbox():
 	attack_hitbox_down.disabled = true
 	
 func receive_hit(hit_data: Dictionary) -> void:
-	if is_invincible or is_dead:
+	if is_invincible or is_dead or is_dashing:
 		return
 	
 	actual_hp -= hit_data.damage
@@ -149,4 +150,11 @@ func apply_knockback(force: Vector2) -> void:
 	velocity = Vector2.ZERO
 
 func die():
-	pass
+	if is_dead:
+		return
+	is_dead = true
+	
+	effects.stop()
+	is_invincible = true
+	
+	state_machine._on_request_transition("playerdead")

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://d24v160of65gr"]
+
+[ext_resource type="Script" uid="uid://b3vehlrg1yfpx" path="res://scripts/player/game_over.gd" id="1_c5loy"]
+
+[node name="GameOver" type="CanvasLayer" unique_id=1502145410]
+script = ExtResource("1_c5loy")
+
+[node name="Control" type="Control" parent="." unique_id=782277920]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=713592802]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.07683582, 0.07683582, 0.07683582, 0.63529414)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=913836283]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = 129.0
+offset_right = 121.0
+offset_bottom = 213.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer" unique_id=1119191310]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=1395967404]
+layout_mode = 2
+text = "...Foi uma boa jornada guerreiro
+...Mas acabou"
+
+[node name="Button" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=1297069089]
+layout_mode = 2
+action_mode = 0
+text = "Ainda não..."
+
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Button" to="." method="_on_retry_button_pressed"]

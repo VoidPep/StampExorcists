@@ -1,0 +1,6 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://o265bkpyt8ku"]
+
+[ext_resource type="Texture2D" uid="uid://70w6hmoxh5mj" path="res://art/player/sprite_sheet/death/PlayerDeath.png" id="1_mstm6"]
+
+[resource]
+diffuse_texture = ExtResource("1_mstm6")
