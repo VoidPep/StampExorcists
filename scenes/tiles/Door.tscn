@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bs1iqmlvhk0cy"]
+
+[ext_resource type="Script" uid="uid://dr63k1nv2ex" path="res://scenes/tiles/door.gd" id="1_istb2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mjoj"]
+size = Vector2(36, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_istb2"]
+size = Vector2(34, 32)
+
+[node name="Door" type="Node2D" unique_id=1696342632]
+script = ExtResource("1_istb2")
+
+[node name="Blocker" type="StaticBody2D" parent="." unique_id=758032288]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker" unique_id=498328825]
+position = Vector2(7, 6)
+shape = SubResource("RectangleShape2D_0mjoj")
+
+[node name="TriggerArea" type="Area2D" parent="." unique_id=546437398]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" unique_id=764163829]
+position = Vector2(7, 6)
+shape = SubResource("RectangleShape2D_istb2")
+debug_color = Color(0.8483788, 0.32783484, 0.48242027, 0.41960785)

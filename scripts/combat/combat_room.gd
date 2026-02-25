@@ -6,12 +6,12 @@ signal wave_started(wave_index: int)
 
 @export var enemy_scene: PackedScene
 @export var spawn_points: Array[Marker2D] = []
+@export var wave_count: int = 2
 
 const WAVES: Array[Dictionary] = [
-	{ "count": 3, "interval": 0.6 },
-	{ "count": 6, "interval": 0.3 },
-	{ "count": 8, "interval": 0.25 },
-	{ "count": 1, "interval": 0.0, "is_boss_wave": true },
+	{ "count": 1, "interval": 0.6 },
+	#{ "count": 6, "interval": 0.3 },
+	#{ "count": 1, "interval": 0.0, "is_boss_wave": true },
 ]
 
 var current_wave: int = 0
@@ -68,15 +68,21 @@ func _spawn_enemy(wave_data: Dictionary) -> void:
 
 func _on_enemy_died() -> void:
 	active_enemies -= 1
-
 	if active_enemies <= 0 and room_active:
-		await get_tree().create_timer(1.2).timeout
+		room_active = false
+		
+		var tree = get_tree()
+		
+		if tree:
+			await tree.create_timer(1.2).timeout
+		if not is_inside_tree():
+			return
 		_on_wave_cleared()
 
 func _on_wave_cleared() -> void:
 	current_wave += 1
 
-	if current_wave >= WAVES.size():
+	if current_wave >= wave_count:
 		_on_room_cleared()
 		return
 

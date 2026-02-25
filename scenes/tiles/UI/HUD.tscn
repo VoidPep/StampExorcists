@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://5ok8dj084g36"]
+
+[ext_resource type="Script" uid="uid://2wk3h0rqslkp" path="res://scenes/tiles/UI/hud.gd" id="1_7457f"]
+[ext_resource type="Texture2D" uid="uid://b2ifmyycsu54f" path="res://art/UI/Healthbar.png" id="1_cmxgx"]
+[ext_resource type="Texture2D" uid="uid://c4834fv0a2mis" path="res://art/UI/DashOff.png" id="3_g7egv"]
+[ext_resource type="Texture2D" uid="uid://d3v166gjn6046" path="res://art/UI/DashOn.png" id="4_pkuie"]
+
+[node name="Hud" type="CanvasLayer" unique_id=1565977176]
+script = ExtResource("1_7457f")
+
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=1790535542]
+offset_right = 980.0
+offset_bottom = 1020.0
+scale = Vector2(0.2, 0.2)
+max_value = 5.0
+value = 5.0
+texture_under = ExtResource("1_cmxgx")
+
+[node name="Bar" type="ColorRect" parent="HealthBar" unique_id=1374345024]
+z_index = -5
+layout_mode = 0
+offset_left = 100.00003
+offset_top = 793.33325
+offset_right = 140.00003
+offset_bottom = 833.33325
+rotation = 0.0895501
+scale = Vector2(17.282248, 1.6810353)
+color = Color(0.98281056, 0.46557802, 0.4190138, 1)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1250501901]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -145.99994
+offset_top = -147.99997
+offset_right = 834.0001
+offset_bottom = 832.0001
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.15, 0.15)
+max_value = 1.0
+step = 0.01
+fill_mode = 4
+texture_under = ExtResource("3_g7egv")
+texture_progress = ExtResource("4_pkuie")

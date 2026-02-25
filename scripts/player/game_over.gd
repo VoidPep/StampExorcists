@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var button := $Control/CenterContainer/VBoxContainer/Button
+
 func _ready():
 	visible = false
 	layer = 10
@@ -7,9 +9,8 @@ func _ready():
 	if player:
 		player.player_died.connect(show_game_over)
 		
-	$Control/CenterContainer/VBoxContainer/Button.mouse_filter = Control.MOUSE_FILTER_STOP
-	$Control/CenterContainer/VBoxContainer/Button.pressed.connect(_on_retry_button_pressed)
-
+	button.mouse_filter = Control.MOUSE_FILTER_STOP
+	
 func show_game_over():
 	visible = true
 	$Control.modulate.a = 0

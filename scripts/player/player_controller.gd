@@ -13,23 +13,24 @@ class_name Player
 @export var animated_sprite : AnimatedSprite2D
 @export var dash_cooldown_ui : TextureProgressBar
 
-const MAX_HP := 1
+const MAX_HP := 5
 const DAMAGE := 1
 
-const DASH_COOLDOWN := 0.6
+const DASH_COOLDOWN := 0.9
 const SPEED = 500.0
 const DASH_SPEED := 1400.0
 const DASH_DURATION := 0.09
 const DEFAULT_IDLE := "idle_down"
 
-var last_direction : String
-var last_direction_vect_2 : Vector2 = Vector2.ZERO
-
 var dash_cooldown_timer := 0.0
 var can_dash : bool = true
 var is_dashing : bool = false
 var dash_direction: Vector2 = Vector2.ZERO
+
+var last_direction_vect_2 : Vector2 = Vector2.ZERO
+var last_direction : String
 var last_horizontal := 1
+
 var actual_hp := MAX_HP
 var is_invincible : bool = false
 var is_dead : bool = false
@@ -38,9 +39,12 @@ signal player_died
 signal attack_pressed
 signal dash_pressed
 signal move_input(direction: Vector2)
+signal hp_changed(current_hp: int, max_hp: int)
 
 func _ready():
 	actual_hp = MAX_HP
+	hp_changed.emit(actual_hp, MAX_HP)
+	
 	attack_hitbox_up.disabled = true
 	attack_hitbox_down.disabled = true
 	
@@ -68,14 +72,11 @@ func _process(delta):
 	update_dash_ui()
 	
 func update_dash_ui():
-	#label.text = str(snapped(dash_cooldown_timer, 0.01))
-	
 	if can_dash:
-		#dash_cooldown_ui.value = 1
-		pass
+		dash_cooldown_ui.value = 1.0
 	else:
 		var progress = 1.0 - (dash_cooldown_timer / DASH_COOLDOWN)
-		#dash_cooldown_ui.value = clamp(progress, 0, 1)
+		dash_cooldown_ui.value = clamp(progress, 0.0, 1.0)
 
 func _on_frame_changed():
 	if animated_sprite.animation.begins_with("attack"):
@@ -123,7 +124,7 @@ func receive_hit(hit_data: Dictionary) -> void:
 	apply_knockback(hit_data.get("knockback", Vector2.ZERO))
 	play_hit_feedback()
 	
-	# emit_signal("hp_changed", actual_hp)
+	hp_changed.emit(actual_hp, MAX_HP)
 	
 	if actual_hp <= 0:
 		die()

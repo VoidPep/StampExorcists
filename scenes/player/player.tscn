@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://qw0do6v31tky" path="res://scripts/player/attack_hitbox.gd" id="13_gx1jg"]
 [ext_resource type="PackedScene" uid="uid://c7ulna0tu1fx" path="res://scenes/player/camera_2D.tscn" id="15_fcs02"]
 [ext_resource type="Script" uid="uid://r5di0qxp4i25" path="res://scripts/player/player_dead.gd" id="15_myrg7"]
+[ext_resource type="PackedScene" uid="uid://5ok8dj084g36" path="res://scenes/tiles/UI/HUD.tscn" id="18_8ydkj"]
 
 [sub_resource type="Gradient" id="Gradient_75vfm"]
 offsets = PackedFloat32Array(0.08709677, 0.4967742, 1)
@@ -555,12 +556,13 @@ _data = {
 &"blink": SubResource("Animation_myrg7")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1791341929 node_paths=PackedStringArray("animated_sprite") groups=["Player"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1791341929 node_paths=PackedStringArray("animated_sprite", "dash_cooldown_ui") groups=["Player"]]
 collision_layer = 2
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_dovo2")
 animated_sprite = NodePath("Brain/AnimatedSprite2D")
+dash_cooldown_ui = NodePath("Hud/TextureProgressBar")
 
 [node name="Camera2D" parent="." unique_id=610344045 instance=ExtResource("15_fcs02")]
 
@@ -667,3 +669,10 @@ debug_color = Color(0.25934353, 0.40159371, 0.015144822, 0.41960785)
 
 [node name="Effects" type="AnimationPlayer" parent="." unique_id=1929919378]
 libraries/ = SubResource("AnimationLibrary_kvlxm")
+
+[node name="Hud" parent="." unique_id=1565977176 node_paths=PackedStringArray("player") instance=ExtResource("18_8ydkj")]
+player = NodePath("..")
+
+[connection signal="hp_changed" from="." to="Hud" method="_on_hp_changed"]
+
+[editable path="Hud"]
