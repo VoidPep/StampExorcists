@@ -40,6 +40,7 @@ signal attack_pressed
 signal dash_pressed
 signal move_input(direction: Vector2)
 signal hp_changed(current_hp: int, max_hp: int)
+signal attacked
 
 func _ready():
 	actual_hp = MAX_HP

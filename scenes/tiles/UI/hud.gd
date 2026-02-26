@@ -14,8 +14,6 @@ func _ready():
 
 	fill_max_width = health_bar_fill.size.x
 
-	player.hp_changed.connect(_on_hp_changed)
-
 	health_bar.max_value = Player.MAX_HP
 	health_bar.value = Player.MAX_HP
 

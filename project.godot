@@ -24,6 +24,11 @@ buses/default_bus_layout="uid://bs52rt8o1ljq7"
 GlobalAudioManager="*uid://cv4ju1pdnphds"
 SceneManager="*uid://buh2goibtycuj"
 
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
 [global_group]
 
 Player=""
@@ -112,3 +117,4 @@ move_right={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0.022647142, 0.024483962, 0.058422454, 1)

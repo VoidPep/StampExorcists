@@ -68,4 +68,4 @@ func next_scene():
 		show_scene()
 
 func start_game():
-	SceneManager.change_scene("res://scenes/tiles/game_test.tscn", image)
+	SceneManager.change_scene("res://scenes/game_room_1.tscn", image)

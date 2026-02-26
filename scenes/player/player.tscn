@@ -673,6 +673,12 @@ libraries/ = SubResource("AnimationLibrary_kvlxm")
 [node name="Hud" parent="." unique_id=1565977176 node_paths=PackedStringArray("player") instance=ExtResource("18_8ydkj")]
 player = NodePath("..")
 
+[node name="Label" type="Label" parent="Hud" unique_id=1848169670]
+offset_left = 441.0
+offset_top = 538.0
+offset_right = 481.0
+offset_bottom = 561.0
+
 [connection signal="hp_changed" from="." to="Hud" method="_on_hp_changed"]
 
 [editable path="Hud"]

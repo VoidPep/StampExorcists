@@ -24,6 +24,7 @@ func enter():
 	
 	player.animated_sprite.play(animation)
 	player.animated_sprite.animation_finished.connect(_on_animation_finished)
+	player.attacked.emit()
 
 
 func exit():

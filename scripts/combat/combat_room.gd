@@ -8,10 +8,11 @@ signal wave_started(wave_index: int)
 @export var spawn_points: Array[Marker2D] = []
 @export var wave_count: int = 2
 
-const WAVES: Array[Dictionary] = [
-	{ "count": 1, "interval": 0.6 },
-	#{ "count": 6, "interval": 0.3 },
-	#{ "count": 1, "interval": 0.0, "is_boss_wave": true },
+@export var WAVES: Array[Dictionary] = [
+	{ "count": 3, "interval": 0.6 },
+	{ "count": 6, "interval": 0.3 },
+	{ "count": 8, "interval": 0.3 },
+	{ "count": 1, "interval": 0.0, "is_boss_wave": true },
 ]
 
 var current_wave: int = 0
