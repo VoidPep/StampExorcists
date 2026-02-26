@@ -1,0 +1,16 @@
+Nós sabemos que o jogo não possui muito do elemento carimbo...
+
+Nossa ideia foi fazer uma mini historinha de um herói em uma temática chinesa que exorcisava demonios na base da martelada
+ou melhor
+da carimbada
+
+Queríamos ter tido tempo de implementar parry, stacking on hit, e skills que iriam ficar "carimbadas" nos inimigos dando algum efeito
+Assim você iria poder usar os seus stacks para adicionar até dois carimbos nos inimigos, que se somados os efeitos, iria dar efeitos diferentes
+
+De qualquer forma, vamos terminar de desenvolver isso aqui, e ficamos felizes em ter participado dessa Jam
+
+Estamos desenvolvendo um jogo em paralelo chamado chronoleak, não temos muito e o desenvolvimento ta meio parado
+mas fico feliz de deixar o twitter dele aqui
+https://x.com/Chronoleak_dev
+
+Caramelo Team agradece...
