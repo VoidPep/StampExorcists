@@ -28,3 +28,9 @@ CRÉDITOS:
 	Boss: https://opengameart.org/content/boss-battle-6-metal-alternate
 	Game over: https://opengameart.org/content/game-over
 	Menu: https://opengameart.org/content/rock-theme
+
+
+- Uso de IA
+	Nenhuma ferramenta de IA generativa foi utilizada na produção dos assets e produção artística deste projeto.
+	Apenas para termos algumas ideias exclusivamente das mecânicas principais.
+	(O Laigter usa processamento de imagem tradicional - algoritmos determinísticos, sem IA generativa)
