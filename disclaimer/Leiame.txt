@@ -1,4 +1,8 @@
-Nós sabemos que o jogo não possui muito do elemento carimbo...
+Olá sou VoidPep ou só Pedro, desenvolvedor web e game developer, e falo em nome da Caramelo Team, nossa equipe de desenvolvimento de jogos
+(Atualmente temos mais membros na equipe, mas somente eu e Felppo, Engenheiro de software e Artista digital participamos dessa jam).
+
+Apesar de não termos jogos publicados estamos trabalhando nisso constantemente.
+Ficamos muito felizes de poder participar dessa jam, nós sabemos que o jogo talvez não possua muito do elemento carimbo...
 
 Nossa ideia foi fazer uma mini historinha de um herói em uma temática chinesa que exorcisava demonios na base da martelada
 ou melhor
@@ -9,8 +13,13 @@ Assim você iria poder usar os seus stacks para adicionar até dois carimbos nos
 
 De qualquer forma, vamos terminar de desenvolver isso aqui, e ficamos felizes em ter participado dessa Jam
 
-Estamos desenvolvendo um jogo em paralelo chamado chronoleak, não temos muito e o desenvolvimento ta meio parado
+Estamos desenvolvendo um jogo em paralelo chamado Chronoleak, não temos muito e o desenvolvimento ta meio parado
 mas fico feliz de deixar o twitter dele aqui
+
 https://x.com/Chronoleak_dev
 
 Caramelo Team agradece...
+
+Contato:
+https://x.com/TalonVoid
+https://x.com/Felpoggers
