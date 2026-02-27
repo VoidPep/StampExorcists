@@ -8,3 +8,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pass
+
+func _on_game_ended():
+	SceneManager.change_scene("res://scenes/final_cutscene/FinalCutscene.tscn")

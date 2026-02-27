@@ -1,0 +1,6 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://b6od4xmwflppi"]
+
+[ext_resource type="Texture2D" uid="uid://d2ar20ikgsm07" path="res://art/boss/charge/BossDash.png" id="1_ju5ro"]
+
+[resource]
+diffuse_texture = ExtResource("1_ju5ro")

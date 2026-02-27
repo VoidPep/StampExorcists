@@ -90,5 +90,6 @@ func update_direction() -> void:
 func move_towards_player(delta: float) -> void:
 	if direction != Vector2.ZERO:
 		velocity = velocity.move_toward(direction * speed, acceleration * delta)
+		$AnimatedSprite2D.flip_h = direction.x > 0
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)

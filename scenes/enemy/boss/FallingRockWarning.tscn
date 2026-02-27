@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://don5otcbvvtsr"]
+
+[ext_resource type="Script" uid="uid://cb2eq7j5m7xx1" path="res://scenes/enemy/boss/falling_rock_warning.gd" id="1_d4tnl"]
+[ext_resource type="Texture2D" uid="uid://dosirnvtbxse1" path="res://art/effects/Rock.png" id="2_m4m4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7w6j0"]
+size = Vector2(20.599998, 24.8)
+
+[node name="FallingRockWarning" type="Node2D" unique_id=1463356091]
+scale = Vector2(5, 5)
+script = ExtResource("1_d4tnl")
+warning_radius = 20.0
+
+[node name="RockSprite" type="Sprite2D" parent="." unique_id=1072095841]
+position = Vector2(-7.3999996, -2)
+texture = ExtResource("2_m4m4j")
+
+[node name="RockArea" type="Area2D" parent="." unique_id=1385871429]
+position = Vector2(-16.199999, -8.999999)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RockArea" unique_id=1672468622]
+position = Vector2(8.299995, 6.5999994)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_7w6j0")
+
+[node name="WarningCircle" type="Polygon2D" parent="." unique_id=1753802855]
+position = Vector2(-7.7999997, -1.3999999)

@@ -13,7 +13,7 @@ class_name Player
 @export var animated_sprite : AnimatedSprite2D
 @export var dash_cooldown_ui : TextureProgressBar
 
-const MAX_HP := 5
+const MAX_HP := 7
 const DAMAGE := 1
 
 const DASH_COOLDOWN := 0.9

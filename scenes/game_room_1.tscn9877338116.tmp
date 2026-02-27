@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cyamb3y7fg167" path="res://scenes/game_room_2.tscn" id="6_lckqn"]
 [ext_resource type="PackedScene" uid="uid://b2ync4ygwbf4t" path="res://scenes/player/player.tscn" id="7_e653n"]
 [ext_resource type="PackedScene" uid="uid://3hscd5gcbcdj" path="res://scenes/tiles/ambience.tscn" id="8_v2eig"]
+[ext_resource type="PackedScene" uid="uid://don5otcbvvtsr" path="res://scenes/enemy/boss/FallingRockWarning.tscn" id="9_53ipe"]
 [ext_resource type="PackedScene" uid="uid://b3rgip5g2fu2j" path="res://scenes/enviroment/world_environment.tscn" id="9_etc2w"]
 [ext_resource type="PackedScene" uid="uid://bphgkwouy8mgs" path="res://scenes/tiles/UI/vignette.tscn" id="10_ox0p2"]
+[ext_resource type="PackedScene" uid="uid://c86repujcsmd5" path="res://scenes/enemy/boss/boss.tscn" id="10_vhule"]
 [ext_resource type="PackedScene" uid="uid://c7xsmuj388cqa" path="res://scenes/tiles/UI/fog_layer.tscn" id="11_bmnbl"]
 [ext_resource type="PackedScene" uid="uid://d24v160of65gr" path="res://scenes/UI/GameOver.tscn" id="12_iaffk"]
 [ext_resource type="PackedScene" uid="uid://brgg0ha0ubxpr" path="res://scenes/UI/tutorial_UI.tscn" id="13_1hwj5"]
@@ -78,6 +80,11 @@ position = Vector2(-1110, 104)
 [node name="EnemyPool" type="Node2D" parent="Enviroment/CombatRoom" unique_id=155682857]
 y_sort_enabled = true
 
+[node name="Boss" parent="Enviroment/CombatRoom" unique_id=2019141607 instance=ExtResource("10_vhule")]
+position = Vector2(-552.00006, -221.00002)
+rock_count = 8
+speed = 155.38
+
 [node name="SpawnPoints" type="Node2D" parent="Enviroment/CombatRoom" unique_id=864534846]
 
 [node name="Marker2D" type="Marker2D" parent="Enviroment/CombatRoom/SpawnPoints" unique_id=1889910884]
@@ -103,6 +110,11 @@ position = Vector2(-1105, -319)
 
 [node name="Marker2D8" type="Marker2D" parent="Enviroment/CombatRoom/SpawnPoints" unique_id=1926867248]
 position = Vector2(-449, 72)
+
+[node name="FallingRockWarning" parent="Enviroment/CombatRoom" unique_id=1463356091 instance=ExtResource("9_53ipe")]
+position = Vector2(-937, -227)
+delay = 1.2
+damage = 2
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Enviroment" unique_id=1821112813]
 position = Vector2(-414, -514)

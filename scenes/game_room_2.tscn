@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dm5l3ind3rjws" path="res://scenes/tiles/game_scene.gd" id="1_1ftij"]
 [ext_resource type="TileSet" uid="uid://8nxyjkfydhux" path="res://scenes/tiles/tile_set.tres" id="2_thpyg"]
 [ext_resource type="Script" uid="uid://ctpfsvh1uh8s0" path="res://scripts/combat/combat_room.gd" id="3_x4hkt"]
+[ext_resource type="PackedScene" uid="uid://c86repujcsmd5" path="res://scenes/enemy/boss/boss.tscn" id="4_5vgnc"]
 [ext_resource type="PackedScene" uid="uid://bjoks4bavokid" path="res://scenes/enemy/enemy.tscn" id="4_hfgnt"]
 [ext_resource type="PackedScene" uid="uid://b2ync4ygwbf4t" path="res://scenes/player/player.tscn" id="6_vm8qt"]
 [ext_resource type="PackedScene" uid="uid://3hscd5gcbcdj" path="res://scenes/tiles/ambience.tscn" id="7_4n22r"]
@@ -38,8 +39,22 @@ tile_set = ExtResource("2_thpyg")
 y_sort_enabled = true
 position = Vector2(0, 2)
 script = ExtResource("3_x4hkt")
+boss_scene = ExtResource("4_5vgnc")
 enemy_scene = ExtResource("4_hfgnt")
-wave_count = 4
+wave_count = 3
+WAVES = Array[Dictionary]([{
+"count": 3,
+"interval": 0.6
+}, {
+"count": 6,
+"interval": 0.3
+}, {
+"count": 1,
+"escort_count": 6,
+"escort_interval": 0.4,
+"interval": 0.0,
+"is_boss_wave": true
+}])
 
 [node name="EnviromentLayer" type="Node2D" parent="Enviroment/CombatRoom" unique_id=362066009]
 y_sort_enabled = true
@@ -122,5 +137,7 @@ texture = SubResource("GradientTexture2D_eywpb")
 [node name="FogLayer" parent="UI" unique_id=1255796293 instance=ExtResource("10_yckmy")]
 
 [node name="GameOver" parent="UI" unique_id=1502145410 instance=ExtResource("11_xs8p2")]
+
+[connection signal="room_cleared" from="Enviroment/CombatRoom" to="." method="_on_game_ended"]
 
 [editable path="UI/Vignette"]

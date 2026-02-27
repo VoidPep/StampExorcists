@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://3hscd5gcbcdj" path="res://scenes/tiles/ambience.tscn" id="8_v2eig"]
 [ext_resource type="PackedScene" uid="uid://b3rgip5g2fu2j" path="res://scenes/enviroment/world_environment.tscn" id="9_etc2w"]
 [ext_resource type="PackedScene" uid="uid://bphgkwouy8mgs" path="res://scenes/tiles/UI/vignette.tscn" id="10_ox0p2"]
+[ext_resource type="PackedScene" uid="uid://c86repujcsmd5" path="res://scenes/enemy/boss/boss.tscn" id="10_vhule"]
 [ext_resource type="PackedScene" uid="uid://c7xsmuj388cqa" path="res://scenes/tiles/UI/fog_layer.tscn" id="11_bmnbl"]
 [ext_resource type="PackedScene" uid="uid://d24v160of65gr" path="res://scenes/UI/GameOver.tscn" id="12_iaffk"]
 [ext_resource type="PackedScene" uid="uid://brgg0ha0ubxpr" path="res://scenes/UI/tutorial_UI.tscn" id="13_1hwj5"]
@@ -77,6 +78,10 @@ position = Vector2(-1110, 104)
 
 [node name="EnemyPool" type="Node2D" parent="Enviroment/CombatRoom" unique_id=155682857]
 y_sort_enabled = true
+
+[node name="Boss" parent="Enviroment/CombatRoom" unique_id=2019141607 instance=ExtResource("10_vhule")]
+position = Vector2(-552.00006, -221.00002)
+speed = 155.38
 
 [node name="SpawnPoints" type="Node2D" parent="Enviroment/CombatRoom" unique_id=864534846]
 

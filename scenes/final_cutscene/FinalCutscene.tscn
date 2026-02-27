@@ -1,17 +1,20 @@
-[gd_scene format=3 uid="uid://85us1xqpgycs"]
+[gd_scene format=3 uid="uid://uscviu13mf4u"]
 
-[ext_resource type="Script" uid="uid://jjryfuy5cx10" path="res://scenes/initial_cutscene/initial_cutscene.gd" id="1_8nf7k"]
-[ext_resource type="Texture2D" uid="uid://dnprxkm52siyd" path="res://scenes/initial_cutscene/images/StampExorcistIntro1.png" id="2_p75ap"]
+[ext_resource type="Script" uid="uid://bqk646ou0qbfo" path="res://scenes/final_cutscene/initial_cutscene.gd" id="1_pvnka"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2smfd"]
+load_path = "res://.godot/imported/StampExorcistIntro1.png-690e7bfc2a7f63afb1feb5e1dd91585f.ctex"
 
 [node name="InitialCutscene" type="Control" unique_id=697781528]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_8nf7k")
+script = ExtResource("1_pvnka")
 
 [node name="Background" type="ColorRect" parent="." unique_id=314476561]
 layout_mode = 0
+offset_top = 3.0
 offset_right = 1160.0
-offset_bottom = 650.0
+offset_bottom = 653.0
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1068654960]
@@ -19,7 +22,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.48136652, 0.47987297)
-texture = ExtResource("2_p75ap")
+texture = SubResource("CompressedTexture2D_2smfd")
 
 [node name="Label" type="Label" parent="." unique_id=439409809]
 layout_mode = 0
@@ -28,12 +31,12 @@ offset_top = 548.0
 offset_right = 71.0
 offset_bottom = 571.0
 
-[node name="Label2" type="Label" parent="." unique_id=1730413235]
+[node name="Label2" type="Label" parent="." unique_id=1985218373]
 layout_mode = 0
-offset_left = 861.0
-offset_top = 609.0
-offset_right = 1143.0
-offset_bottom = 632.0
+offset_left = 871.0
+offset_top = 613.0
+offset_right = 1153.0
+offset_bottom = 636.0
 text = "Espaço / A / X para ir para o próximo"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=229475914]
